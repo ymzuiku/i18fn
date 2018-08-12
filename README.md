@@ -1,6 +1,4 @@
-
 ## [中文说明文档](./README-CN.md)
-
 
 ## Use
 
@@ -13,7 +11,7 @@ const hello = i18fn.txt({ english: 'hello', chinese: '你好' });
 console.log(hello);
 ```
 
-#### Use params
+## Use params
 
 ```js
 const i18fn = require('i18fn');
@@ -27,6 +25,22 @@ console.log(personHello);
 });
 ```
 
+## Miss language
+
+If HTML language is chinese, but your forget add chinese txt, like this:
+
+```js
+const say = i18fn.txt({ english: 'hello' });
+
+// In production, i18fn use english to forget language
+// And In Devloper, i18fn use add - [Miss i18fn: languageType] in english
+if (process.env.NODE_ENV === 'production') {
+  console.log(say); // hello
+} else {
+  console.log(say); // hello - [Miss i18fn: english]
+}
+```
+
 ## set now language
 
 ```js
@@ -38,6 +52,7 @@ i18fn.now('chinese');
 ## Add other language
 
 Default languages:
+
 - english;
 - chinese;
 - chineseTraditional;
@@ -90,6 +105,39 @@ console.log(
 );
 ```
 
+## test
+
+Install package jest:
+```sh
+$ yarn install && yarn test
+```
+
+You can check test in src/index.test.js
+
+```
+$ jest
+ PASS  src/index.test.js
+  ✓ test chinese (4ms)
+  ✓ test english
+  ✓ test english params (1ms)
+  ✓ test english params, use object
+  ✓ test config
+  ✓ test config function
+  ✓ test error chinese
+  ✓ test error english
+  ✓ test error chinese prod
+  ✓ test error english prod
+
+Test Suites: 1 passed, 1 total
+Tests:       10 passed, 10 total
+Snapshots:   0 total
+Time:        1.257s
+Ran all test suites.
+✨  Done in 1.98s.
+```
+
+
 That's all, thank.
 
 i18fn is [MIT licensed](./LICENSE).
+

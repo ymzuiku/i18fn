@@ -2,7 +2,9 @@ var language = (
   navigator['browserLanguage'] || navigator.language
 ).toLowerCase();
 
-let lang = 'english';
+var lang = 'english';
+
+var isProd = process.env.NODE_ENV === 'production';
 
 if (language.indexOf('en') > -1) lang = 'english';
 else if (language.indexOf('nl') > -1) lang = 'dutch';
@@ -32,29 +34,37 @@ const ILanguage = {
   chinese: '',
 };
 
-function txt(languages = ILanguage, params) {
+function txt(languages = ILanguage, params, defLang) {
+  var nowlang = defLang || lang;
+  var str = languages[nowlang];
   if (params) {
-    var str = languages[lang];
     for (var k in params) {
       var exp = eval(`/__${k}__/g`);
       if (typeof params[k] === 'object') {
-        str = str.replace(exp, params[k][lang]);
+        str = str.replace(exp, params[k][nowlang]);
       } else {
         str = str.replace(exp, params[k]);
       }
     }
-    return str;
   }
-  return languages[lang];
+  if (nowlang !== 'english') {
+    if (!isProd) {
+      return (
+        str || `${txt(languages, params, 'english')} - [Miss i18fn: ${nowlang}]`
+      );
+    }
+    return str || txt(languages, params, 'english');
+  }
+  return str;
 }
 
-function nowLanguage(v) {
+function now(v) {
   lang = v;
 }
 
 var i18fn = {
   txt: txt,
-  now: nowLanguage,
+  now: now,
 };
 
 try {
@@ -63,4 +73,5 @@ try {
   global['i18fn'] = i18fn;
 }
 
-module.exports = i18fn;
+exports.txt = txt;
+exports.now = now;

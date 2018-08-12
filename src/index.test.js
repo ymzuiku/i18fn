@@ -1,3 +1,4 @@
+// import i18fn from './index';
 const i18fn = require('./index');
 
 it('test chinese', () => {
@@ -55,4 +56,29 @@ it('test config function', () => {
     open: { english: 'Open the box', chinese: '打开盒子' },
   });
   expect(fnString).toMatch('Open the box, please.');
+});
+
+it('test error chinese', () => {
+  i18fn.now('chinese');
+  const say = i18fn.txt({ english: 'hello' });
+  expect(say).toMatch('hello - [Miss i18fn: chinese]');
+});
+
+it('test error english', () => {
+  i18fn.now('english');
+  const say = i18fn.txt({ chinese: 'hello' });
+  expect(String(say)).toMatch('undefined');
+});
+
+it('test error chinese prod', () => {
+  process.env.NODE_ENV = 'production';
+  i18fn.now('chinese');
+  const say = i18fn.txt({ english: 'hello' });
+  expect(say).toMatch('hello');
+});
+
+it('test error english prod', () => {
+  i18fn.now('english');
+  const say = i18fn.txt({ chinese: 'hello' });
+  expect(String(say)).toMatch('undefined');
 });
