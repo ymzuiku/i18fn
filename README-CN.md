@@ -1,11 +1,8 @@
+## [English Document](./README.md)
 
-## [中文说明文档](./README-CN.md)
+## 使用
 
-
-## Use
-
-I don't like in some i18n file add different string, and in your code use a atlas.
-i18fn is zero config i18n package, juse in you code like this:
+把i18n的多语言直接写在当前代码中,而不是写在配置文件中.
 
 ```js
 const i18fn = require('i18fn');
@@ -13,7 +10,7 @@ const hello = i18fn.txt({ english: 'hello', chinese: '你好' });
 console.log(hello);
 ```
 
-#### Use params
+#### 使用参数
 
 ```js
 const i18fn = require('i18fn');
@@ -27,7 +24,7 @@ console.log(personHello);
 });
 ```
 
-## set now language
+## 设置当前语言
 
 ```js
 const i18fn = require('i18fn');
@@ -35,7 +32,7 @@ const i18fn = require('i18fn');
 i18fn.now('chinese');
 ```
 
-## Add other language
+## 增加其他语言判断
 
 Default languages:
 - english;
@@ -51,7 +48,7 @@ Default languages:
 - swedish;
 - japanese;
 
-If you have mars application, you can add mars language like this:
+如果你的应用需要添加火星语, 你可以这样:
 
 ```js
 const i18fn = require('i18fn');
@@ -69,9 +66,9 @@ const hello = i18fn.txt({ english: 'hello', MarsLanguage: '£ª˜√øø˚˜´' 
 console.log(hello);
 ```
 
-## Still love config? you can like this
+## 如果你还是喜欢把i18n写在配置文件里
 
-Normally, a language is a configuration file, but when you need to add a new string, you need to open many language files one by one, often missing. We can write multiple languages in a file like this:
+往常的做法是一个语言一个配置文件, 但是这样需要添加一个新的字符串时, 需要逐个打开许多个语言文件, 常常会漏. 我们可以这样把多个语言写在一个文件中:
 
 ```js
 const { txt } = require('i18fn');
@@ -82,6 +79,7 @@ const languages = {
     txt({ english: '__open__, please.', chinese: '请__open__.' }, params),
 };
 
+// use
 console.log(languages.done);
 console.log(
   languages.please({
@@ -90,6 +88,6 @@ console.log(
 );
 ```
 
-That's all, thank.
+这就是全部, 谢谢!
 
 i18fn is [MIT licensed](./LICENSE).
