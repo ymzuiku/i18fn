@@ -14,5 +14,9 @@ interface ILangs {
 }
 
 // export const i18fn: Ii18fn;
-export const lang: (languages: ILangs) => string;
+export const lang: (
+  languages: ILangs,
+  params?: any,
+  defLang?: string,
+) => string;
 export const now: (language: string) => void;
