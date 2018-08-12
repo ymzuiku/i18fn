@@ -1,0 +1,24 @@
+{
+  "name": "i18fn",
+  "version": "0.0.1",
+  "description": "i18n in one func",
+  "cn": "把i18n的多语言直接写在当前代码中,而不是写在配置文件中.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ymzuiku/i18func.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ymzuiku/i18func/issues"
+  },
+  "homepage": "https://github.com/ymzuiku/i18func#readme",
+  "devDependencies": {
+    "jest": "^23.5.0"
+  }
+}
