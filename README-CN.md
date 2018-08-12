@@ -6,7 +6,7 @@
 
 ```js
 const i18fn = require('i18fn');
-const hello = i18fn.txt({ english: 'hello', chinese: '你好' });
+const hello = i18fn.lang({ english: 'hello', chinese: '你好' });
 console.log(hello);
 ```
 
@@ -14,7 +14,7 @@ console.log(hello);
 
 ```js
 const i18fn = require('i18fn');
-const personHello = i18fn.txt(
+const personHello = i18fn.lang(
     { english: '__person__, hello', chinese: '__person__, 你好' },
     {
       person: { english: 'Mr.Ming', chinese: '小明' },
@@ -29,7 +29,7 @@ console.log(personHello);
 如果 html 的语言是中文, 而你忘记添加中文的语言内容, 如下面这行代码:
 
 ```js
-const say = i18fn.txt({ english: 'hello' });
+const say = i18fn.lang({ english: 'hello' });
 
 // 在生产环境, i18fn 使用英文作为代替
 // 在开发环境, i18fn 会添加 - [Miss i18fn: languageType] 在英文后头
@@ -79,7 +79,7 @@ if (language.indexOf('MarsLanguage') > -1) {
 }
 
 // ok like default use:
-const hello = i18fn.txt({ english: 'hello', MarsLanguage: '£ª˜√øø˚˜´' });
+const hello = i18fn.lang({ english: 'hello', MarsLanguage: '£ª˜√øø˚˜´' });
 console.log(hello);
 ```
 
@@ -88,12 +88,12 @@ console.log(hello);
 往常的做法是一个语言一个配置文件, 但是这样需要添加一个新的字符串时, 需要逐个打开许多个语言文件, 常常会漏. 我们可以这样把多个语言写在一个文件中:
 
 ```js
-const { txt } = require('i18fn');
+const { lang } = require('i18fn');
 const languages = {
-  done: txt({ english: 'done!', chinese: '完成!' }),
-  hello: txt({ english: 'hello', chinese: '你好' }),
+  done: lang({ english: 'done!', chinese: '完成!' }),
+  hello: lang({ english: 'hello', chinese: '你好' }),
   please: params =>
-    txt({ english: '__open__, please.', chinese: '请__open__.' }, params),
+    lang({ english: '__open__, please.', chinese: '请__open__.' }, params),
 };
 
 // use

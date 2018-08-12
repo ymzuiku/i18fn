@@ -7,7 +7,7 @@ i18fn is zero config i18n package, juse in you code like this:
 
 ```js
 const i18fn = require('i18fn');
-const hello = i18fn.txt({ english: 'hello', chinese: '你好' });
+const hello = i18fn.lang({ english: 'hello', chinese: '你好' });
 console.log(hello);
 ```
 
@@ -15,7 +15,7 @@ console.log(hello);
 
 ```js
 const i18fn = require('i18fn');
-const personHello = i18fn.txt(
+const personHello = i18fn.lang(
     { english: '__person__, hello', chinese: '__person__, 你好' },
     {
       person: { english: 'Mr.Ming', chinese: '小明' },
@@ -30,7 +30,7 @@ console.log(personHello);
 If HTML language is chinese, but your forget add chinese txt, like this:
 
 ```js
-const say = i18fn.txt({ english: 'hello' });
+const say = i18fn.lang({ english: 'hello' });
 
 // In production, i18fn use english to forget language
 // And In Devloper, i18fn use add - [Miss i18fn: languageType] in english
@@ -80,7 +80,7 @@ if (language.indexOf('MarsLanguage') > -1) {
 }
 
 // ok like default use:
-const hello = i18fn.txt({ english: 'hello', MarsLanguage: '£ª˜√øø˚˜´' });
+const hello = i18fn.lang({ english: 'hello', MarsLanguage: '£ª˜√øø˚˜´' });
 console.log(hello);
 ```
 
@@ -89,12 +89,12 @@ console.log(hello);
 Normally, a language is a configuration file, but when you need to add a new string, you need to open many language files one by one, often missing. We can write multiple languages in a file like this:
 
 ```js
-const { txt } = require('i18fn');
+const { lang } = require('i18fn');
 const languages = {
-  done: txt({ english: 'done!', chinese: '完成!' }),
-  hello: txt({ english: 'hello', chinese: '你好' }),
+  done: lang({ english: 'done!', chinese: '完成!' }),
+  hello: lang({ english: 'hello', chinese: '你好' }),
   please: params =>
-    txt({ english: '__open__, please.', chinese: '请__open__.' }, params),
+    lang({ english: '__open__, please.', chinese: '请__open__.' }, params),
 };
 
 console.log(languages.done);

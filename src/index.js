@@ -62,16 +62,5 @@ function now(v) {
   lang = v;
 }
 
-var i18fn = {
-  txt: txt,
-  now: now,
-};
-
-try {
-  window['i18fn'] = i18fn;
-} catch (err) {
-  global['i18fn'] = i18fn;
-}
-
-exports.txt = txt;
+exports.lang = txt;
 exports.now = now;
