@@ -13,11 +13,6 @@ interface ILangs {
   chinese?: string;
 }
 
-interface Ii18fn {
-  txt: (languages: ILangs) => string;
-  now: (language: string) => void;
-}
-
 // export const i18fn: Ii18fn;
-export const txt: (languages: ILangs) => string;
+export const lang: (languages: ILangs) => string;
 export const now: (language: string) => void;
