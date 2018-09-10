@@ -1,9 +1,7 @@
 var language = (
   navigator['browserLanguage'] || navigator.language
 ).toLowerCase();
-
 var lang = 'English';
-
 var isProd = process.env.NODE_ENV === 'production';
 
 if (language.indexOf('en') > -1) lang = 'English';
@@ -53,19 +51,12 @@ function txt(languages, params, defLang) {
   }
   return str;
 }
-
 function setNowLanguage(v) {
-  if (v) {
-    lang = v;
-  } else {
-    console.error('i18fn.setNowLanguage need input string param');
-  }
+  lang = v;
 }
-
 function addLanguage(languageType, languageKey) {
   if (language.indexOf(languageType) > -1) lang = languageKey;
 }
-
 function setProduction(prod) {
   isProd = prod;
 }
