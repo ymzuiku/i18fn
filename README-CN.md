@@ -29,9 +29,9 @@ console.log(personHello);
 });
 ```
 
-## 语言缺失排查
+## 自动语言缺失排查
 
-如果 html 的语言是中文, 而你忘记添加中文的语言内容, 如下面这行代码:
+如果浏览器语言是中文, 而你忘记添加中文的语言内容, 在开发模式中会做错误提示, 如下面这行代码:
 
 ```js
 const say = i18fn.lang({ English: 'hello' });
@@ -47,49 +47,31 @@ if (process.env.NODE_ENV === 'production') {
 
 ## 设置当前语言
 
+如果我们要使用设置修改当前语言，可以手动修改当前语言以覆盖浏览器的语言识别:
+
 ```js
 const i18fn = require('i18fn');
 
 i18fn.setNowLanguage('Chinese');
 ```
 
-## 增加其他语言判断
-
-如果你的应用需要添加匈牙利, 你可以这样:
-
-```js
-const i18fn = require('i18fn');
-
-i18fn.addLanguage('hu-HU', 'Magyar');
-
-// ok like default use:
-const hello = i18fn.lang({ English: 'hello', Magyar: 'helló' });
-console.log(hello);
-```
-
 ## 如果你还是喜欢把 i18n 写在配置文件里
 
-如果我们希望文案可以复用, 我们也可以这样把多个语言写在一个文件中:
+如果我们希望文案可以更好的复用, 我们也可以这样把多个语言写在一个文件中:
 
 ```js
 const { lang } = require('i18fn');
 const languages = {
   done: lang({ English: 'done!', Chinese: '完成!' }),
   hello: lang({ English: 'hello', Chinese: '你好' }),
-  please: params =>
-    lang({ English: '__open__, please.', Chinese: '请__open__.' }, params),
 };
 
 // use
 console.log(languages.done);
-console.log(
-  languages.please({
-    open: { English: 'Open the box', Chinese: '打开盒子' },
-  }),
-);
+console.log(languages.hello);
 ```
 
-## 当前支持语言
+## 当前支持自动识别的语言
 
 - English
 - Chinese
@@ -114,6 +96,20 @@ console.log(
 - Turkish
 - Ukrainian
 - Zulu
+
+## 增加其他语言判断
+
+如果你的应用需要添加匈牙利, 你可以这样:
+
+```js
+const i18fn = require('i18fn');
+
+i18fn.addLanguage('hu-HU', 'Magyar');
+
+// ok like default use:
+const hello = i18fn.lang({ English: 'hello', Magyar: 'helló' });
+console.log(hello);
+```
 
 ## 测试可靠性
 

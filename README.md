@@ -25,7 +25,7 @@ console.log(personHello);
 });
 ```
 
-## Miss language
+## Auto Miss language tip
 
 If HTML language is chinese, but your forget add chinese txt, like this:
 
@@ -41,26 +41,14 @@ if (process.env.NODE_ENV === 'production') {
 }
 ```
 
-## set now language
+## Set now language
+
+If we want to modify the current language with settings, we can manually modify the current language to override the browser's language recognition:
 
 ```js
 const i18fn = require('i18fn');
 
 i18fn.setNowLanguage('Chinese');
-```
-
-## Add other language
-
-If you need add Magyar language, like this:
-
-```js
-const i18fn = require('i18fn');
-
-i18fn.addLanguage('hu-HU', 'Magyar');
-
-// ok like default use:
-const hello = i18fn.lang({ English: 'hello', Magyar: 'helló' });
-console.log(hello);
 ```
 
 ## Still love config? you can like this
@@ -84,7 +72,7 @@ console.log(
 );
 ```
 
-## Support languages
+## Auto differentiate languages
 
 - English
 - Chinese
@@ -109,6 +97,20 @@ console.log(
 - Turkish
 - Ukrainian
 - Zulu
+
+## Add other language
+
+If you need add Magyar language, like this:
+
+```js
+const i18fn = require('i18fn');
+
+i18fn.addLanguage('hu-HU', 'Magyar');
+
+// ok like default use:
+const hello = i18fn.lang({ English: 'hello', Magyar: 'helló' });
+console.log(hello);
+```
 
 ## test
 
