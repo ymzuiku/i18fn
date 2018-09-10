@@ -129,18 +129,19 @@ $ jest
   ✓ test english params (1ms)
   ✓ test english params, use object
   ✓ test config
-  ✓ test config function
+  ✓ test config function (1ms)
   ✓ test error chinese
   ✓ test error english
   ✓ test error chinese prod
-  ✓ test error english prod
+  ✓ test error english prod (1ms)
+  ✓ test add other language
 
 Test Suites: 1 passed, 1 total
 Tests:       10 passed, 10 total
 Snapshots:   0 total
 Time:        1.257s
 Ran all test suites.
-✨  Done in 1.98s.
+✨  Done in 1.80s.
 ```
 
 这就是全部, 谢谢!
