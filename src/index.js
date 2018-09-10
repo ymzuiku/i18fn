@@ -30,22 +30,7 @@ else if (language.indexOf('tr') > -1) lang = 'Turkish';
 else if (language.indexOf('uk') > -1) lang = 'Ukrainian';
 else if (language.indexOf('zu') > -1) lang = 'Zulu';
 
-const ILanguage = {
-  english: '',
-  dutch: '',
-  korea: '',
-  french: '',
-  german: '',
-  japanese: '',
-  italian: '',
-  portuguese: '',
-  spanish: '',
-  swedish: '',
-  chineseTraditional: '',
-  chinese: '',
-};
-
-function txt(languages = ILanguage, params, defLang) {
+function txt(languages, params, defLang) {
   var nowlang = defLang || lang;
   var str = languages[nowlang];
   if (params) {
@@ -69,16 +54,19 @@ function txt(languages = ILanguage, params, defLang) {
   return str;
 }
 
-function now(v) {
+function setNowLanguage(v) {
   lang = v;
 }
 
 function addLanguage(languageType, languageKey) {
-  if (language.indexOf(languageType) > -1) {
-    i18fn.now(languageKey);
-  }
+  if (language.indexOf(languageType) > -1) lang = languageKey;
+}
+
+function setProduction(prod) {
+  isProd = prod;
 }
 
 exports.lang = txt;
-exports.now = now;
+exports.setNowLanguage = setNowLanguage;
 exports.addLanguage = addLanguage;
+exports.setProduction = setProduction;

@@ -50,7 +50,7 @@ if (process.env.NODE_ENV === 'production') {
 ```js
 const i18fn = require('i18fn');
 
-i18fn.now('chinese');
+i18fn.setNowLanguage('chinese');
 ```
 
 ## 增加其他语言判断

@@ -29,6 +29,8 @@ export const lang: (
   params?: any,
   defLang?: string,
 ) => string;
-export const now: (language: string) => string;
+export const setNowLanguage: (language: string) => string;
 
 export function addLanguage(languageType: string, languageKey: string): void;
+
+export function setProduction(prod: boolean): void;
