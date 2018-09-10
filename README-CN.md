@@ -4,7 +4,8 @@
 我们换一种思路, 把 `i18n` 的多语言直接写在当前代码中,而不是写在配置文件中.
 
 ## 思路
-用一个方法,根据开发环境\当前浏览器语言去处理应该使用哪个字符串, 并且暴露设置当前语言的函数,以兼容nodejs端或者开发人员扩展其他语言.
+
+用一个方法,根据开发环境\当前浏览器语言去处理应该使用哪个字符串, 并且暴露设置当前语言的函数,以兼容 nodejs 端或者开发人员扩展其他语言.
 
 ## 使用
 
@@ -78,8 +79,8 @@ const language = (
   navigator['browserLanguage'] || navigator.language
 ).toLowerCase();
 if (language.indexOf('MarsLanguage') > -1) {
-  // add i18func language
-  i18func.now('MarsLanguage');
+  // add i18fn language
+  i18fn.now('MarsLanguage');
 }
 
 // ok like default use:
@@ -112,6 +113,7 @@ console.log(
 ## 测试可靠性
 
 安装测试包:
+
 ```sh
 $ yarn install && yarn test
 ```

@@ -75,8 +75,8 @@ const language = (
   navigator['browserLanguage'] || navigator.language
 ).toLowerCase();
 if (language.indexOf('MarsLanguage') > -1) {
-  // add i18func language
-  i18func.now('MarsLanguage');
+  // add i18fn language
+  i18fn.now('MarsLanguage');
 }
 
 // ok like default use:
@@ -108,6 +108,7 @@ console.log(
 ## test
 
 Install package jest:
+
 ```sh
 $ yarn install && yarn test
 ```
@@ -136,8 +137,6 @@ Ran all test suites.
 ✨  Done in 1.98s.
 ```
 
-
 That's all, thank.
 
 i18fn is [MIT licensed](./LICENSE).
-
