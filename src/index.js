@@ -64,3 +64,4 @@ function now(v) {
 
 exports.lang = txt;
 exports.now = now;
+exports.language = language;

@@ -20,3 +20,4 @@ export const lang: (
   defLang?: string,
 ) => string;
 export const now: (language: string) => void;
+export const language: boolean;
