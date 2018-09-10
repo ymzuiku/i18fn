@@ -55,36 +55,15 @@ i18fn.now('chinese');
 
 ## 增加其他语言判断
 
-当前默认的语种包括:
-
-- english;
-- chinese;
-- chineseTraditional;
-- spanish;
-- dutch;
-- korea;
-- french;
-- german;
-- italian;
-- portuguese;
-- swedish;
-- japanese;
-
-如果你的应用需要添加火星语, 你可以这样:
+如果你的应用需要添加匈牙利, 你可以这样:
 
 ```js
 const i18fn = require('i18fn');
 
-const language = (
-  navigator['browserLanguage'] || navigator.language
-).toLowerCase();
-if (language.indexOf('MarsLanguage') > -1) {
-  // add i18fn language
-  i18fn.now('MarsLanguage');
-}
+i18fn.addLanguage('hu-HU', 'Magyar');
 
 // ok like default use:
-const hello = i18fn.lang({ english: 'hello', MarsLanguage: '£ª˜√øø˚˜´' });
+const hello = i18fn.lang({ english: 'hello', Magyar: 'helló' });
 console.log(hello);
 ```
 
@@ -109,6 +88,32 @@ console.log(
   }),
 );
 ```
+
+## 当前支持语言
+
+- English
+- Chinese
+- ChineseTraditional
+- Dutch
+- Korea
+- French
+- German
+- Japanese
+- Italian
+- Portuguese
+- Spanish
+- Swedish
+- Russian
+- Arabic
+- Vietnamese
+- Polish
+- Finnish
+- Afrikaans
+- Khmer
+- Thai
+- Turkish
+- Ukrainian
+- Zulu
 
 ## 测试可靠性
 

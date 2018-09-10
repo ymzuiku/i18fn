@@ -1,23 +1,34 @@
 interface ILangs {
-  english?: string;
-  dutch?: string;
-  korea?: string;
-  french?: string;
-  german?: string;
-  japanese?: string;
-  italian?: string;
-  portuguese?: string;
-  spanish?: string;
-  swedish?: string;
-  chineseTraditional?: string;
-  chinese?: string;
+  English?: string;
+  Chinese?: string;
+  ChineseTraditional?: string;
+  Dutch?: string;
+  Korea?: string;
+  French?: string;
+  German?: string;
+  Japanese?: string;
+  Italian?: string;
+  Portuguese?: string;
+  Spanish?: string;
+  Swedish?: string;
+  Russian?: string;
+  Arabic?: string;
+  Vietnamese?: string;
+  Polish?: string;
+  Finnish?: string;
+  Afrikaans?: string;
+  Khmer?: string;
+  Thai?: string;
+  Turkish?: string;
+  Ukrainian?: string;
+  Zulu?: string;
 }
 
-// export const i18fn: Ii18fn;
 export const lang: (
   languages: ILangs,
   params?: any,
   defLang?: string,
 ) => string;
-export const now: (language: string) => void;
-export const language: boolean;
+export const now: (language: string) => string;
+
+export function addLanguage(languageType: string, languageKey: string): void;

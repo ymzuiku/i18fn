@@ -51,36 +51,15 @@ i18fn.now('chinese');
 
 ## Add other language
 
-Default languages:
-
-- english;
-- chinese;
-- chineseTraditional;
-- spanish;
-- dutch;
-- korea;
-- french;
-- german;
-- italian;
-- portuguese;
-- swedish;
-- japanese;
-
-If you have mars application, you can add mars language like this:
+If you need add Magyar language, like this:
 
 ```js
 const i18fn = require('i18fn');
 
-const language = (
-  navigator['browserLanguage'] || navigator.language
-).toLowerCase();
-if (language.indexOf('MarsLanguage') > -1) {
-  // add i18fn language
-  i18fn.now('MarsLanguage');
-}
+i18fn.addLanguage('hu-HU', 'Magyar');
 
 // ok like default use:
-const hello = i18fn.lang({ english: 'hello', MarsLanguage: '£ª˜√øø˚˜´' });
+const hello = i18fn.lang({ english: 'hello', Magyar: 'helló' });
 console.log(hello);
 ```
 
@@ -104,6 +83,32 @@ console.log(
   }),
 );
 ```
+
+## Support languages
+
+- English
+- Chinese
+- ChineseTraditional
+- Dutch
+- Korea
+- French
+- German
+- Japanese
+- Italian
+- Portuguese
+- Spanish
+- Swedish
+- Russian
+- Arabic
+- Vietnamese
+- Polish
+- Finnish
+- Afrikaans
+- Khmer
+- Thai
+- Turkish
+- Ukrainian
+- Zulu
 
 ## test
 
