@@ -20,9 +20,9 @@ console.log(hello);
 ```js
 const i18fn = require('i18fn');
 const personHello = i18fn.lang(
-    { english: '__person__, hello', chinese: '__person__, 你好' },
+    { English: '__person__, hello', Chinese: '__person__, 你好' },
     {
-      person: { english: 'Mr.Ming', chinese: '小明' },
+      person: { English: 'Mr.Ming', Chinese: '小明' },
     },
   );
 console.log(personHello);
@@ -34,7 +34,7 @@ console.log(personHello);
 如果 html 的语言是中文, 而你忘记添加中文的语言内容, 如下面这行代码:
 
 ```js
-const say = i18fn.lang({ english: 'hello' });
+const say = i18fn.lang({ English: 'hello' });
 
 // 在生产环境, i18fn 使用英文作为代替
 // 在开发环境, i18fn 会添加 - [Miss i18fn: languageType] 在英文后头
@@ -50,7 +50,7 @@ if (process.env.NODE_ENV === 'production') {
 ```js
 const i18fn = require('i18fn');
 
-i18fn.setNowLanguage('chinese');
+i18fn.setNowLanguage('Chinese');
 ```
 
 ## 增加其他语言判断
@@ -63,7 +63,7 @@ const i18fn = require('i18fn');
 i18fn.addLanguage('hu-HU', 'Magyar');
 
 // ok like default use:
-const hello = i18fn.lang({ english: 'hello', Magyar: 'helló' });
+const hello = i18fn.lang({ English: 'hello', Magyar: 'helló' });
 console.log(hello);
 ```
 
@@ -74,17 +74,17 @@ console.log(hello);
 ```js
 const { lang } = require('i18fn');
 const languages = {
-  done: lang({ english: 'done!', chinese: '完成!' }),
-  hello: lang({ english: 'hello', chinese: '你好' }),
+  done: lang({ English: 'done!', Chinese: '完成!' }),
+  hello: lang({ English: 'hello', Chinese: '你好' }),
   please: params =>
-    lang({ english: '__open__, please.', chinese: '请__open__.' }, params),
+    lang({ English: '__open__, please.', Chinese: '请__open__.' }, params),
 };
 
 // use
 console.log(languages.done);
 console.log(
   languages.please({
-    open: { english: 'Open the box', chinese: '打开盒子' },
+    open: { English: 'Open the box', Chinese: '打开盒子' },
   }),
 );
 ```

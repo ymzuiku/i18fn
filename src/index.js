@@ -10,10 +10,10 @@ if (language.indexOf('en') > -1) lang = 'English';
 else if (language.indexOf('zh-cn') > -1) lang = 'Chinese';
 else if (language.indexOf('zh-') > -1) lang = 'ChineseTraditional';
 else if (language.indexOf('nl') > -1) lang = 'Dutch';
-else if (language.indexOf('ko-kr') > -1) lang = 'Korea';
+else if (language.indexOf('ko-') > -1) lang = 'Korea';
 else if (language.indexOf('fr') > -1) lang = 'French';
 else if (language.indexOf('de') > -1) lang = 'German';
-else if (language.indexOf('ja-jp') > -1) lang = 'Japanese';
+else if (language.indexOf('ja-') > -1) lang = 'Japanese';
 else if (language.indexOf('it') > -1) lang = 'Italian';
 else if (language.indexOf('pt') > -1) lang = 'Portuguese';
 else if (language.indexOf('es') > -1) lang = 'Spanish';
@@ -55,7 +55,11 @@ function txt(languages, params, defLang) {
 }
 
 function setNowLanguage(v) {
-  lang = v;
+  if (v) {
+    lang = v;
+  } else {
+    console.error('i18fn.setNowLanguage need input string param');
+  }
 }
 
 function addLanguage(languageType, languageKey) {

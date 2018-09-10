@@ -29,7 +29,32 @@ export const lang: (
   params?: any,
   defLang?: string,
 ) => string;
-export const setNowLanguage: (language: string) => string;
+export const setNowLanguage: (
+  language:
+    | 'English'
+    | 'Chinese'
+    | 'ChineseTraditional'
+    | 'Dutch'
+    | 'Korea'
+    | 'French'
+    | 'German'
+    | 'Japanese'
+    | 'Italian'
+    | 'Portuguese'
+    | 'Spanish'
+    | 'Swedish'
+    | 'Russian'
+    | 'Arabic'
+    | 'Vietnamese'
+    | 'Polish'
+    | 'Finnish'
+    | 'Afrikaans'
+    | 'Khmer'
+    | 'Thai'
+    | 'Turkish'
+    | 'Ukrainian'
+    | 'Zulu',
+) => string;
 
 export function addLanguage(languageType: string, languageKey: string): void;
 
