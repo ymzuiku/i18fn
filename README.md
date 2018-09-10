@@ -5,6 +5,10 @@
 I don't like in some i18n file add different string, and in your code use a atlas.
 i18fn is zero config i18n package, juse in you code like this:
 
+```sh
+$ npm i --save i18fn
+```
+
 ```js
 const i18fn = require('i18fn');
 const hello = i18fn.lang({ English: 'hello', Chinese: '你好' });
