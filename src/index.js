@@ -1,18 +1,15 @@
-if (!navigator || !navigator.language) {
-  navigator = {
-    browserLanguage: 'en',
-    language: 'en',
-  };
+var language;
+if (navigator === undefined || navigator.language === undefined) {
+  language = 'en';
+} else {
+  language = navigator['browserLanguage'] || navigator.language;
 }
 
-var language = (
-  navigator['browserLanguage'] || navigator.language
-).toLowerCase();
 var lang = 'English';
 var isProd = process.env.NODE_ENV === 'production';
 
 if (language.indexOf('en') > -1) lang = 'English';
-else if (language.indexOf('zh-cn') > -1) lang = 'Chinese';
+else if (language.indexOf('zh-CN') > -1) lang = 'Chinese';
 else if (language.indexOf('zh-') > -1) lang = 'ChineseTraditional';
 else if (language.indexOf('nl') > -1) lang = 'Dutch';
 else if (language.indexOf('ko-') > -1) lang = 'Korea';
@@ -59,9 +56,7 @@ function txt(languages, params, defLang) {
   return str;
 }
 function setNowLanguage(v) {
-  if (typeof v === 'string') {
-    lang = v.toLowerCase();
-  }
+  lang = v;
 }
 function addLanguage(languageType, languageKey) {
   if (language.indexOf(languageType) > -1) lang = languageKey;
