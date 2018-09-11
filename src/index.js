@@ -30,13 +30,15 @@ else if (language.indexOf('tr') > -1) lang = 'Turkish';
 else if (language.indexOf('uk') > -1) lang = 'Ukrainian';
 else if (language.indexOf('zu') > -1) lang = 'Zulu';
 
+const strOf = Object.prototype.toString;
+
 function txt(languages, params, defLang) {
   var nowlang = defLang || lang;
   var str = languages[nowlang];
   if (params) {
     for (var k in params) {
       var exp = eval(`/__${k}__/g`);
-      if (typeof params[k] === 'object') {
+      if (strOf.call(params[k]) !== '[object String]') {
         str = str.replace(exp, params[k][nowlang]);
       } else {
         str = str.replace(exp, params[k]);
