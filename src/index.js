@@ -1,12 +1,10 @@
-var language;
-if (navigator === undefined || navigator.language === undefined) {
-  language = 'en';
-} else {
-  language = navigator['browserLanguage'] || navigator.language;
-}
-
+var language = 'en';
 var lang = 'English';
 var isProd = process.env.NODE_ENV === 'production';
+
+if (navigator !== undefined) {
+  language = navigator['browserLanguage'] || navigator.language;
+}
 
 if (language.indexOf('en') > -1) lang = 'English';
 else if (language.indexOf('zh-CN') > -1) lang = 'Chinese';
@@ -57,6 +55,9 @@ function txt(languages, params, defLang) {
 }
 function setNowLanguage(v) {
   lang = v;
+}
+function getLanguage() {
+  return lang;
 }
 function addLanguage(languageType, languageKey) {
   if (language.indexOf(languageType) > -1) lang = languageKey;

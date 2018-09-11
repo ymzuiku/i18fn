@@ -57,5 +57,6 @@ export const setNowLanguage: (
 ) => string;
 
 export function addLanguage(languageType: string, languageKey: string): void;
+export function getLanguage(): string;
 
 export function setProduction(prod: boolean): void;
