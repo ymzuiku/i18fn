@@ -2,8 +2,12 @@ var language = 'en';
 var lang = 'English';
 var isProd = process.env.NODE_ENV === 'production';
 
-if (navigator !== undefined) {
-  language = navigator['browserLanguage'] || navigator.language;
+if (navigator) {
+  if (navigator.language) {
+    language = navigator.language;
+  } else if (navigator['browserLanguage']) {
+    language = navigator['browserLanguage'];
+  }
 }
 
 if (language.indexOf('en') > -1) lang = 'English';
