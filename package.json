@@ -1,6 +1,6 @@
 {
   "name": "i18fn",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "i18n in one func",
   "cn": "把i18n的多语言直接写在当前代码中,而不是写在配置文件中.",
   "main": "src/index.js",
