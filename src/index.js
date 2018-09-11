@@ -1,3 +1,10 @@
+if (!navigator || !navigator.language) {
+  navigator = {
+    browserLanguage: 'en',
+    language: 'en',
+  };
+}
+
 var language = (
   navigator['browserLanguage'] || navigator.language
 ).toLowerCase();
@@ -52,7 +59,9 @@ function txt(languages, params, defLang) {
   return str;
 }
 function setNowLanguage(v) {
-  lang = v;
+  if (typeof v === 'string') {
+    lang = v.toLowerCase();
+  }
 }
 function addLanguage(languageType, languageKey) {
   if (language.indexOf(languageType) > -1) lang = languageKey;
