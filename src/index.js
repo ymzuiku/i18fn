@@ -41,7 +41,7 @@ function txt(languages, params, defLang) {
   var str = languages[nowlang];
   if (params) {
     for (var k in params) {
-      var exp = eval(`/__${k}__/g`);
+      var exp = eval('/__' + k + '__/g');
       if (strOf.call(params[k]) !== '[object String]') {
         str = str.replace(exp, params[k][nowlang]);
       } else {
