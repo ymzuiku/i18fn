@@ -52,7 +52,8 @@ function txt(languages, params, defLang) {
   if (nowlang !== 'English') {
     if (!isProd) {
       return (
-        str || `${txt(languages, params, 'English')} - [Miss i18fn: ${nowlang}]`
+        str ||
+        txt(languages, params, 'English') + ' - [Miss i18fn: ' + nowlang + ']'
       );
     }
     return str || txt(languages, params, 'English');
