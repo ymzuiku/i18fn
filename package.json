@@ -1,13 +1,21 @@
 {
   "name": "i18fn",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "i18n in one func",
   "cn": "把i18n的多语言直接写在当前代码中,而不是写在配置文件中.",
-  "main": "src/index.js",
-  "types": "src/index.d.ts",
+  "private": false,
+  "main": "umd/index.js",
+  "types": "umd/index.d.ts",
   "scripts": {
     "test": "jest",
-    "babel": "./node_modules/.bin/babel src --out-dir lib"
+    "lib": "node rollup.config.js"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0",
+    "rollup": "^1.24.0",
+    "rollup-plugin-typescript2": "^0.24.3",
+    "rollup-plugin-uglify": "^6.0.3",
+    "typescript": "3.5.2"
   },
   "repository": {
     "type": "git",
@@ -19,8 +27,5 @@
   "bugs": {
     "url": "https://github.com/ymzuiku/i18fn/issues"
   },
-  "homepage": "https://github.com/ymzuiku/i18fn#readme",
-  "devDependencies": {
-    "jest": "^23.5.0"
-  }
+  "homepage": "https://github.com/ymzuiku/i18fn#readme"
 }

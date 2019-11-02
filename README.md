@@ -11,7 +11,7 @@ $ npm i --save i18fn
 
 ```js
 const i18fn = require('i18fn');
-const hello = i18fn.lang({ English: 'hello', Chinese: '你好' });
+const hello = i18fn({ English: 'hello', Chinese: '你好' });
 console.log(hello);
 ```
 
@@ -19,7 +19,7 @@ console.log(hello);
 
 ```js
 const i18fn = require('i18fn');
-const personHello = i18fn.lang(
+const personHello = i18fn(
     { English: '__person__, hello', Chinese: '__person__, 你好' },
     {
       person: { English: 'Mr.Ming', Chinese: '小明' },
@@ -34,7 +34,7 @@ console.log(personHello);
 If HTML language is chinese, but your forget add chinese txt, like this:
 
 ```js
-const say = i18fn.lang({ English: 'hello' });
+const say = i18fn({ English: 'hello' });
 
 // In production, i18fn use english to forget language
 // And In Devloper, i18fn use add - [Miss i18fn: languageType] in english
@@ -64,8 +64,7 @@ const { lang } = require('i18fn');
 const languages = {
   done: lang({ English: 'done!', Chinese: '完成!' }),
   hello: lang({ English: 'hello', Chinese: '你好' }),
-  please: params =>
-    lang({ English: '__open__, please.', Chinese: '请__open__.' }, params),
+  please: params => lang({ English: '__open__, please.', Chinese: '请__open__.' }, params),
 };
 
 console.log(languages.done);
@@ -112,7 +111,7 @@ const i18fn = require('i18fn');
 i18fn.addLanguage('hu-HU', 'Magyar');
 
 // ok like default use:
-const hello = i18fn.lang({ English: 'hello', Magyar: 'helló' });
+const hello = i18fn({ English: 'hello', Magyar: 'helló' });
 console.log(hello);
 ```
 

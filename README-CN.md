@@ -11,7 +11,7 @@
 
 ```js
 const i18fn = require('i18fn');
-const hello = i18fn.lang({ english: 'hello', chinese: '你好' });
+const hello = i18fn({ english: 'hello', chinese: '你好' });
 console.log(hello);
 ```
 
@@ -19,7 +19,7 @@ console.log(hello);
 
 ```js
 const i18fn = require('i18fn');
-const personHello = i18fn.lang(
+const personHello = i18fn(
     { English: '__person__, hello', Chinese: '__person__, 你好' },
     {
       person: { English: 'Mr.Ming', Chinese: '小明' },
@@ -34,7 +34,7 @@ console.log(personHello);
 如果浏览器语言是中文, 而你忘记添加中文的语言内容, 在开发模式中会做错误提示, 如下面这行代码:
 
 ```js
-const say = i18fn.lang({ English: 'hello' });
+const say = i18fn({ English: 'hello' });
 
 // 在生产环境, i18fn 使用英文作为代替
 // 在开发环境, i18fn 会添加 - [Miss i18fn: languageType] 在英文后头
@@ -107,7 +107,7 @@ const i18fn = require('i18fn');
 i18fn.addLanguage('hu-HU', 'Magyar');
 
 // ok like default use:
-const hello = i18fn.lang({ English: 'hello', Magyar: 'helló' });
+const hello = i18fn({ English: 'hello', Magyar: 'helló' });
 console.log(hello);
 ```
 
