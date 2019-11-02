@@ -88,7 +88,8 @@ const i18fn: II18fn & II18fnProp = (languages: ILangs, params?: any, defLang?: k
   var str = (languages as any)[nowlang];
   if (params) {
     for (var k in params) {
-      var exp = eval('/__' + k + '__/g');
+      const exp = new RegExp(`__${k}__`, 'g');
+
       if (strOf.call(params[k]) !== '[object String]') {
         str = str.replace(exp, params[k][nowlang]);
       } else {
