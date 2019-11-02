@@ -96,10 +96,17 @@ const i18fn: II18fn & II18fnProp = (languages: ILangs, params?: any, defLang?: k
       }
     }
   }
-  if (nowlang !== 'English') {
+  if (!str && nowlang !== 'English') {
     if (!isProd) {
       return str || i18fn(languages, params, 'English') + ' - [Miss i18fn: ' + nowlang + ']';
     }
+    if (nowLang === 'ChineseTraditional' && !str) {
+      str = i18fn(languages, params, 'Chinese');
+    }
+    if (nowLang === 'Chinese' && !str) {
+      str = i18fn(languages, params, 'ChineseTraditional');
+    }
+
     return str || i18fn(languages, params, 'English');
   }
   return str;
