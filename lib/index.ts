@@ -62,11 +62,15 @@ const langMap = {
   zu: 'Zulu',
 };
 
-Object.keys(langMap).forEach(k => {
-  if (language.indexOf(k) === 0) {
-    nowLang = (langMap as any)[k];
+const keys = Object.keys(langMap);
+
+for (let i = 0; i < keys.length; i++) {
+  const v = keys[i];
+  if (language.indexOf(v) === 0) {
+    nowLang = (langMap as any)[v];
+    break;
   }
-});
+}
 
 const strOf = Object.prototype.toString;
 
